@@ -1,7 +1,7 @@
 import os
 import logging
 from pyrogram import Client, filters
-
+from pyrogram.types import Message
 # === Load Config from Environment ===
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "7766441913:AAHvsqouFU932Tm7qff7We6wAY4qrQWNx10")
 CHAT_ID = int(os.environ.get("CHAT_ID", "-1002585868566"))
@@ -14,6 +14,13 @@ logging.basicConfig(
 
 # === Create the Bot Client ===
 app = Client("join_request_bot", bot_token=BOT_TOKEN)
+
+@app.on_message(filters.command("start") & filters.private)
+async def start_command(client, message: Message):
+    await message.reply(
+        "✅ Hello! I’m online.\n\n"
+        "I approve all join requests automatically in the configured group/channel.\n@thelx0980"
+    )
 
 @app.on_chat_join_request(filters.chat(CHAT_ID))
 async def approve_join_request(client, join_request):
