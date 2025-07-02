@@ -3,8 +3,8 @@ import logging
 from pyrogram import Client, filters
 
 # === Load Config from Environment ===
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
-CHAT_ID = int(os.environ.get("CHAT_ID", "-1001234567890"))
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7766441913:AAHvsqouFU932Tm7qff7We6wAY4qrQWNx10")
+CHAT_ID = int(os.environ.get("CHAT_ID", "-1002585868566"))
 
 # === Logging Setup ===
 logging.basicConfig(
